@@ -65,6 +65,6 @@ extension CollectionContainerViewPresenter: UICollectionViewDelegate {
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let item = dataSource.items[indexPath.row]
-        print("tapd item: \(item)")
+        print("tapd item: \(item.title)")
     }
 }

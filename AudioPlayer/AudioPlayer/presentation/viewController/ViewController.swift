@@ -12,6 +12,14 @@ import AVFoundation
 final class ViewController: UIViewController {
 
     @IBOutlet private weak var playerView: AVPlayerView!
+
+    @IBOutlet private weak var currentTimeLabel: UILabel! {
+        didSet {
+            currentTimeLabel.text = Double(0).formatString()
+        }
+    }
+
+    private var timer = NSTimer()
 }
 
 // MARK: - LifeCycle
@@ -49,6 +57,10 @@ extension ViewController {
     func onTapView(gesture: UITapGestureRecognizer) {
         playerView.player?.pause()
     }
+
+    func updatePlayingTime() {
+        currentTimeLabel.text = playerView.player?.currentTime().seconds.formatString()
+    }
 }
 
 // MARK: - AVPlayerViewDelegate
@@ -62,6 +74,7 @@ extension ViewController: AVPlayerViewDelegate {
         }
 
         player?.play()
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: .updatePlayingTime, userInfo: nil, repeats: true)
     }
 
     func playerItemDidReachEnd(item: AVPlayerItem?) {
@@ -75,4 +88,6 @@ extension ViewController: AVPlayerViewDelegate {
 private extension Selector {
 
     static let onTapView = #selector(ViewController.onTapView(_:))
+
+    static let updatePlayingTime = #selector(ViewController.updatePlayingTime)
 }

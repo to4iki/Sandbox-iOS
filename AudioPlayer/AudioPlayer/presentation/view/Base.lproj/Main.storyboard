@@ -26,15 +26,27 @@
                                     <constraint firstAttribute="width" constant="400" id="qQZ-Rs-hTa"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MvG-cy-oda">
+                                <rect key="frame" x="282.5" y="465" width="35.5" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="YSe-9H-vzt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rew-PN-Bkd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SCn-OQ-zWe"/>
                             <constraint firstItem="rew-PN-Bkd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="TuS-An-gfk"/>
+                            <constraint firstItem="MvG-cy-oda" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vSK-yY-4om"/>
+                            <constraint firstItem="MvG-cy-oda" firstAttribute="top" secondItem="rew-PN-Bkd" secondAttribute="bottom" constant="15" id="xmF-ZG-Y3S"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="AudioPlayer" id="Rt4-aV-bal"/>
                     <connections>
+                        <outlet property="currentTimeLabel" destination="MvG-cy-oda" id="fjW-yj-0vL"/>
                         <outlet property="playerView" destination="rew-PN-Bkd" id="8Hv-Xf-tDF"/>
                     </connections>
                 </viewController>

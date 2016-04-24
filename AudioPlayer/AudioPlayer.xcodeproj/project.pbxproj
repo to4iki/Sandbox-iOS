@@ -117,6 +117,7 @@
 				<string>1E1C12F11CCCA90C00E21276</string>
 				<string>1E4B0C0C1CCB6F0C000BD39C</string>
 				<string>1EEF9D321CCBC57E0057B40F</string>
+				<string>1EC30C931CCD1E3A00E27EFC</string>
 				<string>1EB032B51CCC89D200F91EBF</string>
 			</array>
 			<key>isa</key>
@@ -569,6 +570,7 @@
 		<dict>
 			<key>children</key>
 			<array>
+				<string>1EC30C921CCD1E3A00E27EFC</string>
 				<string>1EB032B41CCC89D200F91EBF</string>
 			</array>
 			<key>isa</key>
@@ -641,6 +643,26 @@
 			<string>view</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1EC30C921CCD1E3A00E27EFC</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Double+AudioPlayer.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1EC30C931CCD1E3A00E27EFC</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1EC30C921CCD1E3A00E27EFC</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>1EEF9D311CCBC57E0057B40F</key>
 		<dict>

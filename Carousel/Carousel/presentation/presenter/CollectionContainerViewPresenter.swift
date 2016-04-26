@@ -12,17 +12,15 @@ final class CollectionContainerViewPresenter: NSObject {
 
     private let view: CollectionContainerView
 
-    private var items: [Item] = [] {
-        didSet {
-            dataSource.setup(items.map(ItemReadDto.fromItem))
-            view.collectionView.reloadData()
-        }
-    }
+    private let items: [Item]
 
     private let dataSource = CollectionViewDataSource()
 
-    init(view: CollectionContainerView) {
+    init(view: CollectionContainerView, items: [Item]) {
         self.view = view
+        self.items = items
+
+        self.dataSource.setup(items.map(ItemReadDto.fromItem))
     }
 }
 
@@ -32,10 +30,6 @@ extension CollectionContainerViewPresenter: Presenter {
 
     func viewDidLoad() {
         setup()
-    }
-
-    func viewWillAppear(animated: Bool) {
-        items = ItemFactory.dummy()
     }
 }
 
@@ -56,6 +50,9 @@ extension CollectionContainerViewPresenter {
 
         // Cell
         view.collectionView.registerNib(CollectionViewCell.nib(), forCellWithReuseIdentifier: CollectionViewCell.CellIdentifier)
+
+        // reload
+        view.collectionView.reloadData()
     }
 }
 

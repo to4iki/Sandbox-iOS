@@ -12,8 +12,12 @@ final class ViewController: UIViewController {
     
     @IBOutlet private weak var collectionContainerView: CollectionContainerView!
 
-    private lazy var collectionContainerViewPresenter: CollectionContainerViewPresenter =
-        CollectionContainerViewPresenter(view: self.collectionContainerView)
+    private let items: [Item] = ItemFactory.dummy()
+
+    private lazy var collectionContainerViewPresenter: CollectionContainerViewPresenter = CollectionContainerViewPresenter(
+        view: self.collectionContainerView,
+        items: self.items
+    )
 }
 
 // MARK: - LifeCycle
@@ -24,11 +28,5 @@ extension ViewController {
         super.viewDidLoad()
 
         collectionContainerViewPresenter.viewDidLoad()
-    }
-
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-
-        collectionContainerViewPresenter.viewWillAppear(animated)
     }
 }

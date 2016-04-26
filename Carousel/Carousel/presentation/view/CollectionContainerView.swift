@@ -37,26 +37,8 @@ extension CollectionContainerView {
         let view = nib.instantiateWithOwner(self, options: nil).first as! UIView
         addSubview(view)
 
-        view.translatesAutoresizingMaskIntoConstraints = false
-
-        let bindings = ["view": view]
-        addConstraints(
-            NSLayoutConstraint.constraintsWithVisualFormat(
-                "H:|[view]|",
-                options:NSLayoutFormatOptions(rawValue: 0),
-                metrics:nil,
-                views: bindings
-            )
-        )
-
-        addConstraints(
-            NSLayoutConstraint.constraintsWithVisualFormat(
-                "V:|[view]|",
-                options:NSLayoutFormatOptions(rawValue: 0),
-                metrics:nil,
-                views: bindings
-            )
-        )
+        view.centerXAnchor.constraintEqualToAnchor(self.centerXAnchor).active = true
+        view.centerYAnchor.constraintEqualToAnchor(self.centerYAnchor).active = true
 
         if let collectionViewFlowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             labelLeftMarginConstraint.constant = collectionViewFlowLayout.sectionInset.left

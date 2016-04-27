@@ -13,7 +13,7 @@ final class AVPlayerView: UIView {
 
     weak var delegate: AVPlayerViewDelegate?
 
-    var player: AVPlayer? {
+    dynamic var player: AVPlayer? {
         get {
             return playerLayer.player
         }
@@ -24,6 +24,10 @@ final class AVPlayerView: UIView {
     
     private var playerStatus: AVPlayerStatus {
         return player?.status ?? .Unknown
+    }
+
+    private var playerPlayingStatus: PlayerPlayingStatus {
+        return PlayerPlayingStatus(rate: player?.rate ?? 0.0)
     }
 
     private var playerLayer: AVPlayerLayer {
@@ -44,14 +48,18 @@ final class AVPlayerView: UIView {
         return AVPlayerLayer.self
     }
 
-    func setVideoFillMode(mode: String) {
-        playerLayer.videoGravity = mode
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 }
 
-// MARK: - GestureRecognizer, Notification
+// MARK: - Initializer
 
 extension AVPlayerView {
+
+    func setVideoFillMode(mode: String) {
+        playerLayer.videoGravity = mode
+    }
 
     private func commonInit() {
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: .onTap))
@@ -63,9 +71,14 @@ extension AVPlayerView {
             object: nil
         )
     }
+}
+
+// MARK: - NSNotification Handler
+
+extension AVPlayerView {
 
     func onTap() {
-        delegate?.tapPlayerView(player, status: playerStatus)
+        delegate?.tapPlayerView(player, status: playerStatus, playingStatus: playerPlayingStatus)
     }
 
     func onPlayerItemDidReachEnd() {

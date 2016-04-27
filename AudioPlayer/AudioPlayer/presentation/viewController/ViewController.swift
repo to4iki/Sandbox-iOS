@@ -38,24 +38,9 @@ extension ViewController {
 extension ViewController {
 
     private func setup() {
-        registerGestureRecognizer()
-
         playerView.player = PlayerFactory.apply()
         playerView.setVideoFillMode(AVLayerVideoGravityResizeAspect)
         playerView.delegate = self
-    }
-}
-
-// MARK: - GestureRecognizer
-
-extension ViewController {
-
-    private func registerGestureRecognizer() {
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: .onTapView))
-    }
-
-    func onTapView(gesture: UITapGestureRecognizer) {
-        playerView.player?.pause()
     }
 
     func updatePlayingTime() {
@@ -67,14 +52,19 @@ extension ViewController {
 
 extension ViewController: AVPlayerViewDelegate {
 
-    func tapPlayerView(player: AVPlayer?, status: AVPlayerStatus) {
+    func tapPlayerView(player: AVPlayer?, status: AVPlayerStatus, playingStatus: PlayerPlayingStatus) {
         guard status == .ReadyToPlay else {
             print("failure ready to play.")
             return
         }
 
-        player?.play()
-        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: .updatePlayingTime, userInfo: nil, repeats: true)
+        switch playingStatus {
+        case .Playing:
+            player?.pause()
+        case .Pause:
+            player?.play()
+            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: .updatePlayingTime, userInfo: nil, repeats: true)
+        }
     }
 
     func playerItemDidReachEnd(item: AVPlayerItem?) {
@@ -86,8 +76,6 @@ extension ViewController: AVPlayerViewDelegate {
 // MARK: - Selector
 
 private extension Selector {
-
-    static let onTapView = #selector(ViewController.onTapView(_:))
 
     static let updatePlayingTime = #selector(ViewController.updatePlayingTime)
 }

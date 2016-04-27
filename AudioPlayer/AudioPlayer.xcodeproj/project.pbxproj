@@ -115,6 +115,7 @@
 			<array>
 				<string>1E4B0C0E1CCB6F0C000BD39C</string>
 				<string>1E1C12F11CCCA90C00E21276</string>
+				<string>1EC585BD1CD1033E00C03641</string>
 				<string>1E4B0C0C1CCB6F0C000BD39C</string>
 				<string>1EEF9D321CCBC57E0057B40F</string>
 				<string>1EC30C931CCD1E3A00E27EFC</string>
@@ -572,6 +573,7 @@
 			<array>
 				<string>1EC30C921CCD1E3A00E27EFC</string>
 				<string>1EB032B41CCC89D200F91EBF</string>
+				<string>1EC585BC1CD1033E00C03641</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -661,6 +663,26 @@
 		<dict>
 			<key>fileRef</key>
 			<string>1EC30C921CCD1E3A00E27EFC</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1EC585BC1CD1033E00C03641</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>PlayerPlayingStatus.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1EC585BD1CD1033E00C03641</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1EC585BC1CD1033E00C03641</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>

@@ -11,7 +11,7 @@ import AVFoundation
 
 protocol AVPlayerViewDelegate: class {
 
-    func tapPlayerView(player: AVPlayer?, status: AVPlayerStatus, playingStatus: PlayerPlayingStatus)
+    func tapPlayerView(player: AVPlayer?, playerStatus: AVPlayerStatus, playingStatus: PlayingStatus)
 
     func playerItemDidReachEnd(item: AVPlayerItem?)
 }

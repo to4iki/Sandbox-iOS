@@ -13,7 +13,7 @@ final class AVPlayerView: UIView {
 
     weak var delegate: AVPlayerViewDelegate?
 
-    dynamic var player: AVPlayer? {
+    var player: AVPlayer? {
         get {
             return playerLayer.player
         }
@@ -21,13 +21,13 @@ final class AVPlayerView: UIView {
             playerLayer.player = newValue
         }
     }
-    
+
     private var playerStatus: AVPlayerStatus {
         return player?.status ?? .Unknown
     }
 
-    private var playerPlayingStatus: PlayerPlayingStatus {
-        return PlayerPlayingStatus(rate: player?.rate ?? 0.0)
+    private var playingStatus: PlayingStatus {
+        return PlayingStatus(rate: player?.rate ?? 0.0)
     }
 
     private var playerLayer: AVPlayerLayer {
@@ -38,7 +38,7 @@ final class AVPlayerView: UIView {
         super.init(frame: frame)
         commonInit()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
@@ -73,12 +73,12 @@ extension AVPlayerView {
     }
 }
 
-// MARK: - NSNotification Handler
+// MARK: - NSNotificationHandler, UITapGestureRecognizer
 
 extension AVPlayerView {
 
     func onTap() {
-        delegate?.tapPlayerView(player, status: playerStatus, playingStatus: playerPlayingStatus)
+        delegate?.tapPlayerView(player, playerStatus: playerStatus, playingStatus: playingStatus)
     }
 
     func onPlayerItemDidReachEnd() {

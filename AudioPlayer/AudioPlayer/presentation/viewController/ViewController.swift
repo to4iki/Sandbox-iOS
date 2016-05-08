@@ -52,8 +52,8 @@ extension ViewController {
 
 extension ViewController: AVPlayerViewDelegate {
 
-    func tapPlayerView(player: AVPlayer?, status: AVPlayerStatus, playingStatus: PlayerPlayingStatus) {
-        guard status == .ReadyToPlay else {
+    func tapPlayerView(player: AVPlayer?, playerStatus: AVPlayerStatus, playingStatus: PlayingStatus) {
+        guard playerStatus == .ReadyToPlay else {
             print("failure ready to play.")
             return
         }
@@ -61,7 +61,7 @@ extension ViewController: AVPlayerViewDelegate {
         switch playingStatus {
         case .Playing:
             player?.pause()
-        case .Pause:
+        case .Paused:
             player?.play()
             timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: .updatePlayingTime, userInfo: nil, repeats: true)
         }

@@ -1,5 +1,5 @@
 //
-//  PlayerPlayingStatus.swift
+//  PlayingStatus.swift
 //  AudioPlayer
 //
 //  Created by to4iki on 4/27/16.
@@ -8,10 +8,10 @@
 
 import Foundation
 
-enum PlayerPlayingStatus {
-    case Playing, Pause
+enum PlayingStatus {
+    case Playing, Paused
 
     init(rate: Float) {
-        self = rate == 0.0 ? .Pause : .Playing
+        self = rate == 0.0 ? .Paused : .Playing
     }
 }

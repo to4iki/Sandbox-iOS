@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKv-aF-18f">
-                                <rect key="frame" x="278.5" y="285" width="43" height="30"/>
+                                <rect key="frame" x="279" y="285" width="43" height="30"/>
                                 <state key="normal">
                                     <string key="title" base64-UTF8="YES">
 TW9kYWwQA

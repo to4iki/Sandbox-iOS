@@ -10,7 +10,7 @@ import UIKit
 
 final class ViewController: UIViewController {
 
-    private let introductionViewController = IntroductionViewController.instantiate()
+    private let pageViewController = PageViewController.instantiate()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,13 +18,13 @@ final class ViewController: UIViewController {
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        showIntroductionViewController()
+        showPageViewController()
     }
 
-    private func showIntroductionViewController() {
-        introductionViewController.modalPresentationStyle = .Custom
-        introductionViewController.transitioningDelegate = self
-        presentViewController(introductionViewController, animated: true) {
+    private func showPageViewController() {
+        pageViewController.modalPresentationStyle = .Custom
+        pageViewController.transitioningDelegate = self
+        presentViewController(pageViewController, animated: true) {
             print("complete present")
         }
     }
@@ -35,7 +35,7 @@ final class ViewController: UIViewController {
 extension ViewController {
 
     @IBAction func onModalButton(sender: UIButton) {
-        showIntroductionViewController()
+        showPageViewController()
     }
 }
 

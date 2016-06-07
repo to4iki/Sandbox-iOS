@@ -27,6 +27,8 @@ final class IntroductionPageControlView: UIView {
 
     weak var delegate: IntroductionPageControlViewDelegate?
 
+    @IBOutlet private(set) weak var pageControl: UIPageControl!
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()

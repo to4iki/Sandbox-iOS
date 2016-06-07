@@ -8,7 +8,20 @@
 
 import UIKit
 
+// MARK: - IntroductionPageViewControllerDelegate
+
+protocol IntroductionPageViewControllerDelegate: class {
+
+    func introductionPageViewController(introductionPageViewController: IntroductionPageViewController, didUpdatePageCount count: Int)
+
+    func introductionPageViewController(introductionPageViewController: IntroductionPageViewController, didUpdatePageIndex index: Int)
+}
+
+// MARK: - IntroductionPageViewController
+
 final class IntroductionPageViewController: UIPageViewController {
+
+    weak var pageDelegate: IntroductionPageViewControllerDelegate?
 
     private lazy var pageDataSource = IntroductionPageViewControllerDataSource(
         viewControllers: [UIColor.greenColor(), UIColor.yellowColor(), UIColor.blueColor()].map {
@@ -32,16 +45,47 @@ final class IntroductionPageViewController: UIPageViewController {
         dataSource = pageDataSource
         delegate = self
 
+        if let initialViewController = pageDataSource.viewControllers.first {
+            scrollToViewController(initialViewController, animated: false)
+        }
+
+        pageDelegate?.introductionPageViewController(self, didUpdatePageCount: pageDataSource.viewControllers.count)
+    }
+
+    func scrollToNextViewController() {
+        if let
+            visibleViewController = viewControllers?.first,
+            nextViewController = pageDataSource.pageViewController(self, viewControllerAfterViewController: visibleViewController)
+        {
+            scrollToViewController(nextViewController)
+        }
+    }
+
+    func scrollToViewController(index newIndex: Int) {
+        if let currentIndex = currentIndex {
+            let direction: UIPageViewControllerNavigationDirection = newIndex >= currentIndex ? .Forward : .Reverse
+            let nextViewController = pageDataSource.viewControllers[newIndex]
+            scrollToViewController(nextViewController, direction: direction)
+        }
+    }
+
+    private func scrollToViewController(viewController: UIViewController, direction: UIPageViewControllerNavigationDirection = .Forward, animated: Bool = true) {
         setViewControllers(
-            [pageDataSource.viewControllers[beforeIndex]],
-            direction: .Forward,
-            animated: false,
-            completion: nil
+            [viewController],
+            direction: direction,
+            animated: animated,
+            completion: { _ in self.notifyTutorialDelegateOfNewIndex() }
         )
+    }
+
+    private func notifyTutorialDelegateOfNewIndex() {
+        if let currentIndex = currentIndex {
+            pageDelegate?.introductionPageViewController(self, didUpdatePageIndex: currentIndex)
+        }
     }
 }
 
-// MARK: - UIPageViewControllerDelegate
+// MARK: UIPageViewControllerDelegate
 
 extension IntroductionPageViewController: UIPageViewControllerDelegate {
 
@@ -49,5 +93,6 @@ extension IntroductionPageViewController: UIPageViewControllerDelegate {
         if let currentIndex = currentIndex {
             beforeIndex = currentIndex
         }
+        notifyTutorialDelegateOfNewIndex()
     }
 }

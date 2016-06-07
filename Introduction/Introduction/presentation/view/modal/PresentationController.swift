@@ -14,7 +14,7 @@ final class PresentationController: UIPresentationController {
 
     private lazy var overlay: UIView = {
         guard let containerView = self.containerView else {
-            fatalError()
+            fatalError("failure container view nil.")
         }
         return UIView(frame: containerView.bounds)
     }()
@@ -30,9 +30,7 @@ final class PresentationController: UIPresentationController {
         containerView?.insertSubview(overlay, atIndex: 0)
 
         presentedViewController.transitionCoordinator()?.animateAlongsideTransition(
-            { [unowned self] context in
-                self.changeOverlayViewTransparency(presented: true)
-            },
+            { [unowned self] _ in self.changeOverlayViewTransparency(presented: true) },
             completion: nil
         )
     }
@@ -43,9 +41,7 @@ final class PresentationController: UIPresentationController {
 
     override func dismissalTransitionWillBegin() {
         presentedViewController.transitionCoordinator()?.animateAlongsideTransition(
-            { [unowned self] context in
-                self.changeOverlayViewTransparency(presented: false)
-            },
+            { [unowned self] _ in self.changeOverlayViewTransparency(presented: false) },
             completion: nil
         )
     }

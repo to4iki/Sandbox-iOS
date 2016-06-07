@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Sample
 final class PageContentViewController: UIViewController {
 
     var backgroundColor: UIColor = UIColor.whiteColor()

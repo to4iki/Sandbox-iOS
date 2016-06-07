@@ -17,6 +17,7 @@ final class IntroductionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        pageViewController?.pageDelegate = self
         pageControlView.delegate = self
     }
 }
@@ -49,6 +50,7 @@ extension IntroductionViewController: IntroductionPageControlViewDelegate {
 
     func onChangePageControlValue() {
         print("on change pagecontrol value.")
+        pageViewController?.scrollToViewController(index: pageControlView.pageControl.currentPage)
     }
 
     func onTapCloseButton() {
@@ -58,5 +60,19 @@ extension IntroductionViewController: IntroductionPageControlViewDelegate {
 
     func onTapNextButton() {
         print("on tap nextbutton.")
+        pageViewController?.scrollToNextViewController()
+    }
+}
+
+// MARK: - IntroductionPageViewControllerDelegate
+
+extension IntroductionViewController: IntroductionPageViewControllerDelegate {
+
+    func introductionPageViewController(introductionPageViewController: IntroductionPageViewController, didUpdatePageCount count: Int) {
+        pageControlView.pageControl.numberOfPages = count
+    }
+
+    func introductionPageViewController(introductionPageViewController: IntroductionPageViewController, didUpdatePageIndex index: Int) {
+        pageControlView.pageControl.currentPage = index
     }
 }

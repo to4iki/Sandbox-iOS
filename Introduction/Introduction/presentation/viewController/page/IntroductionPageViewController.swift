@@ -1,5 +1,5 @@
 //
-//  PageViewController.swift
+//  IntroductionPageViewController.swift
 //  Introduction
 //
 //  Created by to4iki on 6/7/16.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-final class PageViewController: UIPageViewController {
+final class IntroductionPageViewController: UIPageViewController {
 
-    private lazy var pageDataSource = PageViewControllerDataSource(
+    private lazy var pageDataSource = IntroductionPageViewControllerDataSource(
         viewControllers: [UIColor.redColor(), UIColor.yellowColor(), UIColor.blueColor()].map {
             PageContentViewController.instantiate($0)
         }
@@ -43,21 +43,11 @@ final class PageViewController: UIPageViewController {
 
 // MARK: - UIPageViewControllerDelegate
 
-extension PageViewController: UIPageViewControllerDelegate {
+extension IntroductionPageViewController: UIPageViewControllerDelegate {
 
     func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if let currentIndex = currentIndex {
             beforeIndex = currentIndex
         }
-    }
-}
-
-// MARK: - Initializer
-
-extension PageViewController {
-
-    static func instantiate() -> PageViewController {
-        let storyboard = UIStoryboard(name: "Page", bundle: nil)
-        return storyboard.instantiateViewControllerWithIdentifier(String(PageViewController)) as! PageViewController
     }
 }

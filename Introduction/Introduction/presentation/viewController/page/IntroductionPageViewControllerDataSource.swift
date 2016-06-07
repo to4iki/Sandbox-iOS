@@ -1,5 +1,5 @@
 //
-//  PageViewControllerDataSource.swift
+//  IntroductionPageViewControllerDataSource.swift
 //  Introduction
 //
 //  Created by to4iki on 6/7/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class PageViewControllerDataSource: NSObject {
+final class IntroductionPageViewControllerDataSource: NSObject {
 
     let viewControllers: [UIViewController]
 
@@ -27,18 +27,9 @@ final class PageViewControllerDataSource: NSObject {
             index -= 1
         }
 
-        /// Infinity scroll set
-        /*
-        if index < 0 {
-            index = viewControllers.count - 1
-        } else if index == viewControllers.count {
-            index = 0
-        }
-
         if index >= 0 && index < viewControllers.count {
             return viewControllers[index]
         }
-         */
 
         return nil
     }
@@ -46,7 +37,7 @@ final class PageViewControllerDataSource: NSObject {
 
 // MARK: - UIPageViewControllerDataSource
 
-extension PageViewControllerDataSource: UIPageViewControllerDataSource {
+extension IntroductionPageViewControllerDataSource: UIPageViewControllerDataSource {
 
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         return nextViewController(viewController, isAfter: false)
@@ -54,13 +45,5 @@ extension PageViewControllerDataSource: UIPageViewControllerDataSource {
 
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         return nextViewController(viewController, isAfter: true)
-    }
-
-    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return viewControllers.count
-    }
-
-    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return 0
     }
 }

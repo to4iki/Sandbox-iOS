@@ -11,7 +11,7 @@ import UIKit
 final class IntroductionPageViewController: UIPageViewController {
 
     private lazy var pageDataSource = IntroductionPageViewControllerDataSource(
-        viewControllers: [UIColor.redColor(), UIColor.yellowColor(), UIColor.blueColor()].map {
+        viewControllers: [UIColor.greenColor(), UIColor.yellowColor(), UIColor.blueColor()].map {
             PageContentViewController.instantiate($0)
         }
     )

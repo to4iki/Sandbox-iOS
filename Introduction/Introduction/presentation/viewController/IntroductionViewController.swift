@@ -2,7 +2,7 @@
 //  IntroductionViewController.swift
 //  Introduction
 //
-//  Created by to4iki on 2016/06/07.
+//  Created by to4iki on 6/7/16.
 //  Copyright © 2016 to4iki. All rights reserved.
 //
 
@@ -10,11 +10,14 @@ import UIKit
 
 final class IntroductionViewController: UIViewController {
 
+    @IBOutlet private weak var pageControlView: IntroductionPageControlView!
+
     private var pageViewController: IntroductionPageViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        pageControlView.delegate = self
     }
 }
 
@@ -37,5 +40,23 @@ extension IntroductionViewController {
             where segue.identifier == "IntroductionPageViewControllerSegue" else { fatalError() }
 
         self.pageViewController = pageViewController
+    }
+}
+
+// MARK: - IntroductionPageControlViewDelegate
+
+extension IntroductionViewController: IntroductionPageControlViewDelegate {
+
+    func onChangePageControlValue() {
+        print("on change pagecontrol value.")
+    }
+
+    func onTapCloseButton() {
+        print("on tap closebutton.")
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    func onTapNextButton() {
+        print("on tap nextbutton.")
     }
 }

@@ -10,14 +10,14 @@ import UIKit
 
 final class IntroductionPageViewControllerDataSource: NSObject {
 
-    let viewControllers: [UIViewController]
+    let contents: [UIViewController]
 
-    init(viewControllers: [UIViewController]) {
-        self.viewControllers = viewControllers
+    init(contents: [UIViewController]) {
+        self.contents = contents
     }
 
     private func nextViewController(viewController: UIViewController, isAfter: Bool) -> UIViewController? {
-        guard var index = viewControllers.indexOf(viewController) else {
+        guard var index = contents.indexOf(viewController) else {
             return nil
         }
 
@@ -27,8 +27,8 @@ final class IntroductionPageViewControllerDataSource: NSObject {
             index -= 1
         }
 
-        if index >= 0 && index < viewControllers.count {
-            return viewControllers[index]
+        if index >= 0 && index < contents.count {
+            return contents[index]
         }
 
         return nil

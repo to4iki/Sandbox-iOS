@@ -44,6 +44,35 @@ extension ViewController {
 extension ViewController: UIViewControllerTransitioningDelegate {
 
     func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController? {
-        return PresentationController(presentedViewController: presented, presentingViewController: presenting)
+        let controller = PresentationController(presentedViewController: presented, presentingViewController: presenting)
+        controller.dataSource = self
+        controller.presentationDelegate = self
+        return controller
+    }
+}
+
+// MARK: - PresentationControllerDataSource
+
+extension ViewController: PresentationControllerDataSource {
+
+    func sizeForPresentedContainerView(presentedViewController presented: UIViewController) -> CGSize {
+        return CGSize(width: view.frame.width * 0.8, height: view.frame.height * 0.8)
+    }
+
+    func frameOfPresentedViewInContainerView(presentedViewController presented: UIViewController, containerView: UIView) -> CGRect {
+        let size = sizeForPresentedContainerView(presentedViewController: presented)
+        let point = CGPoint(x: containerView.bounds.width * 0.1, y: containerView.bounds.height * 0.1)
+
+        return CGRect(origin: point, size: size)
+    }
+}
+
+// MARK: - PresentationControllerDelegate
+
+extension ViewController: PresentationControllerDelegate {
+
+    func onTouchPresentationOverlayView(presentedViewController presented: UIViewController) {
+        print("on touch overlay.")
+        presented.dismissViewControllerAnimated(true, completion: nil)
     }
 }

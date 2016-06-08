@@ -8,9 +8,32 @@
 
 import UIKit
 
+// MARK: - PresentationControllerDataSource
+
+protocol PresentationControllerDataSource: class {
+
+    func sizeForPresentedContainerView(presentedViewController presented: UIViewController) -> CGSize
+
+    func frameOfPresentedViewInContainerView(presentedViewController presented: UIViewController, containerView: UIView) -> CGRect
+}
+
+// MARK: - PresentationControllerDelegate
+
+@objc
+protocol PresentationControllerDelegate: class {
+
+    optional func onTouchPresentationOverlayView(presentedViewController presented: UIViewController)
+}
+
+// MARK: - PresentationController
+
 /// presented: callee ViewController
 /// presenting: caller ViewController
 final class PresentationController: UIPresentationController {
+
+    weak var dataSource: PresentationControllerDataSource?
+
+    weak var presentationDelegate: PresentationControllerDelegate?
 
     private lazy var overlay: UIView = {
         guard let containerView = self.containerView else {
@@ -66,27 +89,23 @@ extension PresentationController {
 
     /// child = presented container view
     override func sizeForChildContentContainer(container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
-        return CGSize(width: parentSize.width * 0.8, height: parentSize.height * 0.8)
+        return dataSource?.sizeForPresentedContainerView(presentedViewController: presentedViewController) ?? CGSize.zero
     }
 
     /// presented ViewController frame
     override func frameOfPresentedViewInContainerView() -> CGRect {
-        guard let containerBounds = containerView?.bounds else {
+        guard let containerView = containerView, dataSource = dataSource else {
             return CGRect.zero
         }
 
-        let size = sizeForChildContentContainer(presentedViewController, withParentContainerSize: containerBounds.size)
-        let point = CGPoint(x: containerBounds.width * 0.1, y: containerBounds.height * 0.1)
-
-        return CGRect(origin: point, size: size)
+        return dataSource.frameOfPresentedViewInContainerView(presentedViewController: presentedViewController, containerView: containerView)
     }
 }
 
 extension PresentationController {
 
     func overlayDidTouch(sender: AnyObject) {
-        print("on touch overlay.")
-        presentedViewController.dismissViewControllerAnimated(true, completion: nil)
+        presentationDelegate?.onTouchPresentationOverlayView?(presentedViewController: presentedViewController)
     }
 
     private func changeOverlayViewTransparency(presented presented: Bool) {

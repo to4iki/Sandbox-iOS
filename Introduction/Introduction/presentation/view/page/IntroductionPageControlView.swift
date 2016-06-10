@@ -12,11 +12,11 @@ import UIKit
 
 protocol IntroductionPageControlViewDelegate: class {
 
-    func onChangePageControlValue()
+    func didChangePageControlValue(view: IntroductionPageControlView)
 
-    func onTapCloseButton()
+    func didTapCloseButton(view: IntroductionPageControlView)
 
-    func onTapNextButton()
+    func didTapNextButton(view: IntroductionPageControlView)
 }
 
 // MARK: - IntroductionPageControlView
@@ -48,15 +48,17 @@ final class IntroductionPageControlView: UIView {
         addSubview(view)
     }
 
+    // MARK: IBAction
+
     @IBAction func onChangePageControlValue(sender: UIPageControl) {
-        delegate?.onChangePageControlValue()
+        delegate?.didChangePageControlValue(self)
     }
 
     @IBAction func onTapCloseButton(sender: UIButton) {
-        delegate?.onTapCloseButton()
+        delegate?.didTapCloseButton(self)
     }
 
     @IBAction func onTapNextButton(sender: UIButton) {
-        delegate?.onTapNextButton()
+        delegate?.didTapNextButton(self)
     }
 }

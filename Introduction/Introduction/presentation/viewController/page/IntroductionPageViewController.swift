@@ -23,34 +23,66 @@ final class IntroductionPageViewController: UIPageViewController {
 
     weak var pageDelegate: IntroductionPageViewControllerDelegate?
 
-    private lazy var pageDataSource = IntroductionPageViewControllerDataSource(
-        contents: [UIColor.greenColor(), UIColor.yellowColor(), UIColor.blueColor()].map(PageContentViewController.instantiate)
-    )
+    private let contentViewControllers: [UIViewController] = [UIColor.greenColor(), UIColor.yellowColor(), UIColor.blueColor()].map {
+        PageContentViewController.instantiate($0)
+    }
 
     private var beforeIndex: Int = 0
 
     private var currentIndex: Int? {
-        return viewControllers?.first.flatMap(pageDataSource.contents.indexOf)
+        return viewControllers?.first.flatMap(contentViewControllers.indexOf)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        dataSource = pageDataSource
+        dataSource = self
         delegate = self
+        view.subviews
+            .flatMap { $0 as? UIScrollView }
+            .forEach { $0.delegate = self }
 
-        if let initialViewController = pageDataSource.contents.first {
+        if let initialViewController = contentViewControllers.first {
             scrollToViewController(initialViewController, animated: false)
         }
 
-        configureSwipeView()
-        pageDelegate?.introductionPageViewController(self, didUpdatePageCount: pageDataSource.contents.count)
+        pageDelegate?.introductionPageViewController(self, didUpdatePageCount: contentViewControllers.count)
     }
+
+    private func nextViewController(viewController: UIViewController, isAfter: Bool) -> UIViewController? {
+        guard var index = contentViewControllers.indexOf(viewController) else {
+            return nil
+        }
+
+        if isAfter {
+            index += 1
+        } else {
+            index -= 1
+        }
+
+        if index >= 0 && index < contentViewControllers.count {
+            return contentViewControllers[index]
+        }
+
+        return nil
+    }
+
+    private func notifyTutorialDelegateOfNewIndex() {
+        if let currentIndex = currentIndex {
+            pageDelegate?.introductionPageViewController(self, didUpdatePageIndex: currentIndex)
+            beforeIndex = currentIndex
+        }
+    }
+}
+
+// MARK: - Scroll
+
+extension IntroductionPageViewController {
 
     func scrollToNextViewController() {
         if let
             visibleViewController = viewControllers?.first,
-            nextViewController = pageDataSource.pageViewController(self, viewControllerAfterViewController: visibleViewController)
+            nextViewController = pageViewController(self, viewControllerAfterViewController: visibleViewController)
         {
             scrollToViewController(nextViewController)
         }
@@ -59,15 +91,9 @@ final class IntroductionPageViewController: UIPageViewController {
     func scrollToViewController(index newIndex: Int) {
         if let currentIndex = currentIndex {
             let direction: UIPageViewControllerNavigationDirection = newIndex >= currentIndex ? .Forward : .Reverse
-            let nextViewController = pageDataSource.contents[newIndex]
+            let nextViewController = contentViewControllers[newIndex]
             scrollToViewController(nextViewController, direction: direction)
         }
-    }
-
-    private func configureSwipeView() {
-        view.subviews
-            .flatMap { $0 as? UIScrollView }
-            .forEach { $0.delegate = self }
     }
 
     private func scrollToViewController(viewController: UIViewController, direction: UIPageViewControllerNavigationDirection = .Forward, animated: Bool = true) {
@@ -75,15 +101,23 @@ final class IntroductionPageViewController: UIPageViewController {
             [viewController],
             direction: direction,
             animated: animated,
-            completion: { _ in self.notifyTutorialDelegateOfNewIndex() }
+            completion: { _ in
+                self.notifyTutorialDelegateOfNewIndex()
+            }
         )
     }
+}
 
-    private func notifyTutorialDelegateOfNewIndex() {
-        if let currentIndex = currentIndex {
-            pageDelegate?.introductionPageViewController(self, didUpdatePageIndex: currentIndex)
-            beforeIndex = currentIndex
-        }
+// MARK: - UIPageViewControllerDataSource
+
+extension IntroductionPageViewController: UIPageViewControllerDataSource {
+
+    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+        return nextViewController(viewController, isAfter: false)
+    }
+
+    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+        return nextViewController(viewController, isAfter: true)
     }
 }
 
@@ -107,7 +141,7 @@ extension IntroductionPageViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if beforeIndex == 0 && scrollView.contentOffset.x < scrollView.bounds.width {
             scrollView.contentOffset = CGPoint(x: scrollView.bounds.width, y: 0)
-        } else if beforeIndex == pageDataSource.contents.count - 1 && scrollView.contentOffset.x > scrollView.bounds.width {
+        } else if beforeIndex == contentViewControllers.count - 1 && scrollView.contentOffset.x > scrollView.bounds.width {
             scrollView.contentOffset = CGPoint(x: scrollView.bounds.width, y: 0)
         }
     }
@@ -115,7 +149,7 @@ extension IntroductionPageViewController: UIScrollViewDelegate {
     func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         if beforeIndex == 0 && scrollView.contentOffset.x <= scrollView.bounds.width {
             scrollView.contentOffset = CGPoint(x: scrollView.bounds.width, y: 0)
-        } else if beforeIndex == pageDataSource.contents.count - 1 && scrollView.contentOffset.x >= scrollView.bounds.width {
+        } else if beforeIndex == contentViewControllers.count - 1 && scrollView.contentOffset.x >= scrollView.bounds.width {
             scrollView.contentOffset = CGPoint(x: scrollView.bounds.width, y: 0)
         }
     }

@@ -15,7 +15,6 @@
 		1EB9B6DF1D05C34B003E07D2 /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB9B6DE1D05C34B003E07D2 /* PresentationController.swift */; };
 		1EB9B6E21D05C779003E07D2 /* IntroductionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB9B6E11D05C779003E07D2 /* IntroductionPageViewController.swift */; };
 		1EB9B6E41D05C7C2003E07D2 /* Introduction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EB9B6E31D05C7C2003E07D2 /* Introduction.storyboard */; };
-		1EF5B9AE1D05D3EE00A7C0CB /* IntroductionPageViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF5B9AD1D05D3EE00A7C0CB /* IntroductionPageViewControllerDataSource.swift */; };
 		1EF5B9B01D05D5FC00A7C0CB /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF5B9AF1D05D5FC00A7C0CB /* PageContentViewController.swift */; };
 		4430DEBE1D068DA80026E857 /* IntroductionPageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4430DEBD1D068DA80026E857 /* IntroductionPageControlView.swift */; };
 		4430DEC01D068FE30026E857 /* IntroductionPageControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4430DEBF1D068FE30026E857 /* IntroductionPageControlView.xib */; };
@@ -33,7 +32,6 @@
 		1EB9B6DE1D05C34B003E07D2 /* PresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
 		1EB9B6E11D05C779003E07D2 /* IntroductionPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionPageViewController.swift; sourceTree = "<group>"; };
 		1EB9B6E31D05C7C2003E07D2 /* Introduction.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Introduction.storyboard; sourceTree = "<group>"; };
-		1EF5B9AD1D05D3EE00A7C0CB /* IntroductionPageViewControllerDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionPageViewControllerDataSource.swift; sourceTree = "<group>"; };
 		1EF5B9AF1D05D5FC00A7C0CB /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
 		4430DEBD1D068DA80026E857 /* IntroductionPageControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionPageControlView.swift; sourceTree = "<group>"; };
 		4430DEBF1D068FE30026E857 /* IntroductionPageControlView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroductionPageControlView.xib; sourceTree = "<group>"; };
@@ -55,7 +53,6 @@
 			isa = PBXGroup;
 			children = (
 				1EB9B6E11D05C779003E07D2 /* IntroductionPageViewController.swift */,
-				1EF5B9AD1D05D3EE00A7C0CB /* IntroductionPageViewControllerDataSource.swift */,
 				1EF5B9AF1D05D5FC00A7C0CB /* PageContentViewController.swift */,
 			);
 			path = page;
@@ -216,7 +213,6 @@
 				1EB9B6E21D05C779003E07D2 /* IntroductionPageViewController.swift in Sources */,
 				1EF5B9B01D05D5FC00A7C0CB /* PageContentViewController.swift in Sources */,
 				4430DEBE1D068DA80026E857 /* IntroductionPageControlView.swift in Sources */,
-				1EF5B9AE1D05D3EE00A7C0CB /* IntroductionPageViewControllerDataSource.swift in Sources */,
 				4453E39F1D06863A00B3A2A9 /* IntroductionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

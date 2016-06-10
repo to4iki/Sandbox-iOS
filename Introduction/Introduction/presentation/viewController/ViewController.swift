@@ -10,7 +10,9 @@ import UIKit
 
 final class ViewController: UIViewController {
 
-    private let introductionViewController = IntroductionViewController.instantiate()
+    private var presentedSizeRateFromPresenting: CGFloat {
+        return 0.85
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,7 @@ final class ViewController: UIViewController {
     }
 
     private func showIntroductionViewController() {
+        let introductionViewController = IntroductionViewController.instantiate()
         introductionViewController.modalPresentationStyle = .Custom
         introductionViewController.transitioningDelegate = self
         presentViewController(introductionViewController, animated: true) {
@@ -56,12 +59,14 @@ extension ViewController: UIViewControllerTransitioningDelegate {
 extension ViewController: PresentationControllerDataSource {
 
     func sizeForPresentedContainerView(presentedViewController presented: UIViewController) -> CGSize {
-        return CGSize(width: view.frame.width * 0.8, height: view.frame.height * 0.8)
+        let screenSize = UIScreen.mainScreen().bounds.size
+        return CGSize(width: screenSize.width * presentedSizeRateFromPresenting, height: screenSize.height * presentedSizeRateFromPresenting)
     }
 
     func frameOfPresentedViewInContainerView(presentedViewController presented: UIViewController, containerView: UIView) -> CGRect {
         let size = sizeForPresentedContainerView(presentedViewController: presented)
-        let point = CGPoint(x: containerView.bounds.width * 0.1, y: containerView.bounds.height * 0.1)
+        let rate = (1.0 - presentedSizeRateFromPresenting) / 2.0
+        let point = CGPoint(x: containerView.bounds.width * rate, y: containerView.bounds.height * rate)
 
         return CGRect(origin: point, size: size)
     }

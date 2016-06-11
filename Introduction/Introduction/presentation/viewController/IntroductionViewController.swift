@@ -73,6 +73,11 @@ extension IntroductionViewController: IntroductionPageViewControllerDelegate {
     }
 
     func introductionPageViewController(introductionPageViewController: IntroductionPageViewController, didUpdatePageIndex index: Int) {
+        pageControlView.nextButton.hidden = false
         pageControlView.pageControl.currentPage = index
+    }
+
+    func introductionPageViewControllerDidLastPage(introductionPageViewController: IntroductionPageViewController) {
+        pageControlView.nextButton.hidden = true
     }
 }

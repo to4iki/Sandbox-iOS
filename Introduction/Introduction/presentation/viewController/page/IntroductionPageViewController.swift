@@ -15,6 +15,8 @@ protocol IntroductionPageViewControllerDelegate: class {
     func introductionPageViewController(introductionPageViewController: IntroductionPageViewController, didUpdatePageCount count: Int)
 
     func introductionPageViewController(introductionPageViewController: IntroductionPageViewController, didUpdatePageIndex index: Int)
+
+    func introductionPageViewControllerDidLastPage(introductionPageViewController: IntroductionPageViewController)
 }
 
 // MARK: - IntroductionPageViewController
@@ -50,9 +52,7 @@ final class IntroductionPageViewController: UIPageViewController {
     }
 
     private func nextViewController(viewController: UIViewController, isAfter: Bool) -> UIViewController? {
-        guard var index = contentViewControllers.indexOf(viewController) else {
-            return nil
-        }
+        var index = beforeIndex
 
         if isAfter {
             index += 1
@@ -68,10 +68,17 @@ final class IntroductionPageViewController: UIPageViewController {
     }
 
     private func notifyTutorialDelegateOfNewIndex() {
-        if let currentIndex = currentIndex {
-            pageDelegate?.introductionPageViewController(self, didUpdatePageIndex: currentIndex)
-            beforeIndex = currentIndex
+        guard let currentIndex = currentIndex else {
+            return
         }
+
+        pageDelegate?.introductionPageViewController(self, didUpdatePageIndex: currentIndex)
+
+        if currentIndex + 1 == contentViewControllers.count {
+            pageDelegate?.introductionPageViewControllerDidLastPage(self)
+        }
+
+        beforeIndex = currentIndex
     }
 }
 

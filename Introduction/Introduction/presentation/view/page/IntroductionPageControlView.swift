@@ -29,6 +29,10 @@ final class IntroductionPageControlView: UIView {
 
     @IBOutlet private(set) weak var pageControl: UIPageControl!
 
+    @IBOutlet private(set) weak var closeButton: UIButton!
+
+    @IBOutlet private(set) weak var nextButton: UIButton!
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()

@@ -18,28 +18,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eci-aV-hoX">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="540"/>
                                 <connections>
                                     <segue destination="iAp-ds-ddy" kind="embed" identifier="IntroductionPageViewControllerSegue" id="1Nu-ez-cZw"/>
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GaO-Ga-aW6" customClass="IntroductionPageControlView" customModule="Introduction" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="500" width="600" height="100"/>
+                                <rect key="frame" x="0.0" y="540" width="600" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="3RB-ay-pUc"/>
+                                    <constraint firstAttribute="height" constant="60" id="3RB-ay-pUc"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Jz4-ZX-Apw" firstAttribute="top" secondItem="GaO-Ga-aW6" secondAttribute="bottom" id="4cR-SC-AKr"/>
                             <constraint firstItem="Eci-aV-hoX" firstAttribute="top" secondItem="shT-vN-0S5" secondAttribute="bottom" id="Cmf-vX-x45"/>
+                            <constraint firstItem="GaO-Ga-aW6" firstAttribute="top" secondItem="Eci-aV-hoX" secondAttribute="bottom" id="QeN-J7-B27"/>
                             <constraint firstItem="GaO-Ga-aW6" firstAttribute="leading" secondItem="N6B-ov-brw" secondAttribute="leading" id="UGn-oD-Thc"/>
                             <constraint firstAttribute="trailing" secondItem="GaO-Ga-aW6" secondAttribute="trailing" id="WeN-Rc-Oqg"/>
                             <constraint firstAttribute="trailing" secondItem="Eci-aV-hoX" secondAttribute="trailing" id="ozj-qx-wNC"/>
                             <constraint firstItem="Eci-aV-hoX" firstAttribute="leading" secondItem="N6B-ov-brw" secondAttribute="leading" id="roQ-oq-COL"/>
-                            <constraint firstItem="Jz4-ZX-Apw" firstAttribute="top" secondItem="Eci-aV-hoX" secondAttribute="bottom" id="sXP-uF-SXX"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>

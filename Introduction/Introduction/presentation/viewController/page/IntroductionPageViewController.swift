@@ -25,8 +25,10 @@ final class IntroductionPageViewController: UIPageViewController {
 
     weak var pageDelegate: IntroductionPageViewControllerDelegate?
 
-    private let contentViewControllers: [UIViewController] = [UIColor.greenColor(), UIColor.yellowColor(), UIColor.blueColor()].map {
-        PageContentViewController.instantiate($0)
+    private let contentViewControllers: [UIViewController] = [UIColor.greenColor(), UIColor.yellowColor(), UIColor.blueColor()].map { color in
+        let vc = UIViewController()
+        vc.view.backgroundColor = color
+        return vc
     }
 
     private var beforeIndex: Int = 0

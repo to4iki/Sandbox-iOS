@@ -52,6 +52,14 @@ extension ViewController: UIViewControllerTransitioningDelegate {
         controller.presentationDelegate = self
         return controller
     }
+
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return FadeAnimatedTransitioning(isPresent: true, fadeSpeed: .Slow)
+    }
+
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return FadeAnimatedTransitioning(isPresent: false, fadeSpeed: .Slow)
+    }
 }
 
 // MARK: - PresentationControllerDataSource

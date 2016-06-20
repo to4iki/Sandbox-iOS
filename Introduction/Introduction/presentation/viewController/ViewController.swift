@@ -10,10 +10,6 @@ import UIKit
 
 final class ViewController: UIViewController {
 
-    private var presentedSizeRateFromPresenting: CGFloat {
-        return 0.85
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -47,7 +43,11 @@ extension ViewController {
 extension ViewController: UIViewControllerTransitioningDelegate {
 
     func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController? {
-        let controller = PresentationController(presentedViewController: presented, presentingViewController: presenting)
+        let controller = PresentationController(
+            presentedViewController: presented,
+            presentingViewController: presenting,
+            presentationType: .Introduction
+        )
         controller.dataSource = self
         controller.presentationDelegate = self
         return controller
@@ -66,17 +66,25 @@ extension ViewController: UIViewControllerTransitioningDelegate {
 
 extension ViewController: PresentationControllerDataSource {
 
-    func sizeForPresentedContainerView(presentedViewController presented: UIViewController) -> CGSize {
-        let screenSize = UIScreen.mainScreen().bounds.size
-        return CGSize(width: screenSize.width * presentedSizeRateFromPresenting, height: screenSize.height * presentedSizeRateFromPresenting)
+    func sizeForPresentedContainerView(presentationViewController presentation: PresentationController) -> CGSize {
+        switch presentation.presentationType {
+        case .Introduction:
+            return PresentationSize.Big.size
+        default:
+            return CGSize.zero
+        }
     }
 
-    func frameOfPresentedViewInContainerView(presentedViewController presented: UIViewController, containerView: UIView) -> CGRect {
-        let size = sizeForPresentedContainerView(presentedViewController: presented)
-        let rate = (1.0 - presentedSizeRateFromPresenting) / 2.0
-        let point = CGPoint(x: containerView.bounds.width * rate, y: containerView.bounds.height * rate)
-
-        return CGRect(origin: point, size: size)
+    func frameOfPresentedViewInContainerView(presentationViewController presentation: PresentationController, containerView: UIView) -> CGRect {
+        switch presentation.presentationType {
+        case .Introduction:
+            let size = sizeForPresentedContainerView(presentationViewController: presentation)
+            let rate = (1.0 - PresentationSize.Big.rateFromPresenting) / 2.0
+            let point = CGPoint(x: containerView.bounds.width * rate, y: containerView.bounds.height * rate)
+            return CGRect(origin: point, size: size)
+        default:
+            return CGRect.zero
+        }
     }
 }
 
@@ -84,8 +92,8 @@ extension ViewController: PresentationControllerDataSource {
 
 extension ViewController: PresentationControllerDelegate {
 
-    func onTouchPresentationOverlayView(presentedViewController presented: UIViewController) {
+    func onTouchPresentationOverlayView(presentationViewController presentation: PresentationController) {
         print("on touch overlay.")
-        presented.dismissViewControllerAnimated(true, completion: nil)
+        presentation.presentedViewController.dismissViewControllerAnimated(true, completion: nil)
     }
 }

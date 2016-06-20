@@ -12,9 +12,9 @@ import UIKit
 
 protocol PresentationControllerDataSource: class {
 
-    func sizeForPresentedContainerView(presentedViewController presented: UIViewController) -> CGSize
+    func sizeForPresentedContainerView(presentationViewController presentation: PresentationController) -> CGSize
 
-    func frameOfPresentedViewInContainerView(presentedViewController presented: UIViewController, containerView: UIView) -> CGRect
+    func frameOfPresentedViewInContainerView(presentationViewController presentation: PresentationController, containerView: UIView) -> CGRect
 }
 
 // MARK: - PresentationControllerDelegate
@@ -22,7 +22,36 @@ protocol PresentationControllerDataSource: class {
 @objc
 protocol PresentationControllerDelegate: class {
 
-    optional func onTouchPresentationOverlayView(presentedViewController presented: UIViewController)
+    optional func onTouchPresentationOverlayView(presentationViewController presentation: PresentationController)
+}
+
+// MARK: - PresentationSize
+
+enum PresentationSize {
+    case Small
+    case Big
+
+    var rateFromPresenting: CGFloat {
+        switch self {
+        case .Small:
+            return PresentationSizeRateFromPresenting.Low.rawValue
+        case .Big:
+            return PresentationSizeRateFromPresenting.High.rawValue
+        }
+    }
+
+    var size: CGSize {
+        let screenSize = UIScreen.mainScreen().bounds.size
+        let rate = rateFromPresenting
+        return CGSize(width: screenSize.width * rate, height: screenSize.height * rate)
+    }
+}
+
+// MARK: - PresentationSizeRateFromPresenting
+
+private enum PresentationSizeRateFromPresenting: CGFloat {
+    case Low = 0.25
+    case High = 0.85
 }
 
 // MARK: - PresentationController
@@ -35,6 +64,8 @@ final class PresentationController: UIPresentationController {
 
     weak var presentationDelegate: PresentationControllerDelegate?
 
+    private(set) var presentationType: PresentationType = .Any
+
     private lazy var overlay: UIView = {
         guard let containerView = self.containerView else {
             fatalError("failure container view nil.")
@@ -45,6 +76,11 @@ final class PresentationController: UIPresentationController {
     private lazy var gestureRecognizers: [UITapGestureRecognizer] = [
         UITapGestureRecognizer(target: self, action: .overlayDidTouch)
     ]
+
+    convenience init(presentedViewController: UIViewController, presentingViewController: UIViewController, presentationType: PresentationType) {
+        self.init(presentedViewController: presentedViewController, presentingViewController: presentingViewController)
+        self.presentationType = presentationType
+    }
 
     override func presentationTransitionWillBegin() {
         overlay.gestureRecognizers = gestureRecognizers
@@ -89,7 +125,7 @@ extension PresentationController {
 
     /// child = presented container view
     override func sizeForChildContentContainer(container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
-        return dataSource?.sizeForPresentedContainerView(presentedViewController: presentedViewController) ?? CGSize.zero
+        return dataSource?.sizeForPresentedContainerView(presentationViewController: self) ?? CGSize.zero
     }
 
     /// presented ViewController frame
@@ -98,14 +134,14 @@ extension PresentationController {
             return CGRect.zero
         }
 
-        return dataSource.frameOfPresentedViewInContainerView(presentedViewController: presentedViewController, containerView: containerView)
+        return dataSource.frameOfPresentedViewInContainerView(presentationViewController: self, containerView: containerView)
     }
 }
 
 extension PresentationController {
 
     func overlayDidTouch(sender: AnyObject) {
-        presentationDelegate?.onTouchPresentationOverlayView?(presentedViewController: presentedViewController)
+        presentationDelegate?.onTouchPresentationOverlayView?(presentationViewController: self)
     }
 
     private func changeOverlayViewTransparency(presented presented: Bool) {

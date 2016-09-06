@@ -38,6 +38,16 @@
                ReferencedContainer = "container:FastlaneBox.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1EBC95C31D7F209000E98C8C"
+               BuildableName = "FastlaneBoxUITests.xctest"
+               BlueprintName = "FastlaneBoxUITests"
+               ReferencedContainer = "container:FastlaneBox.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EBC95C71D7F209000E98C8C /* FastlaneBoxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBC95C61D7F209000E98C8C /* FastlaneBoxUITests.swift */; };
 		44585E7F1D7ED30E00C747E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44585E7E1D7ED30E00C747E7 /* AppDelegate.swift */; };
 		44585E811D7ED30E00C747E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44585E801D7ED30E00C747E7 /* ViewController.swift */; };
 		44585E841D7ED30E00C747E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44585E821D7ED30E00C747E7 /* Main.storyboard */; };
@@ -16,6 +17,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1EBC95C91D7F209000E98C8C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 44585E731D7ED30E00C747E7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 44585E7A1D7ED30E00C747E7;
+			remoteInfo = FastlaneBox;
+		};
 		44585E901D7ED30E00C747E7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 44585E731D7ED30E00C747E7 /* Project object */;
@@ -26,6 +34,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1EBC95C41D7F209000E98C8C /* FastlaneBoxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastlaneBoxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EBC95C61D7F209000E98C8C /* FastlaneBoxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastlaneBoxUITests.swift; sourceTree = "<group>"; };
+		1EBC95C81D7F209000E98C8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44585E7B1D7ED30E00C747E7 /* FastlaneBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastlaneBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44585E7E1D7ED30E00C747E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44585E801D7ED30E00C747E7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,6 +50,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1EBC95C11D7F209000E98C8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		44585E781D7ED30E00C747E7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -56,11 +74,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1EBC95C51D7F209000E98C8C /* FastlaneBoxUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1EBC95C61D7F209000E98C8C /* FastlaneBoxUITests.swift */,
+				1EBC95C81D7F209000E98C8C /* Info.plist */,
+			);
+			path = FastlaneBoxUITests;
+			sourceTree = "<group>";
+		};
 		44585E721D7ED30E00C747E7 = {
 			isa = PBXGroup;
 			children = (
 				44585E7D1D7ED30E00C747E7 /* FastlaneBox */,
 				44585E921D7ED30E00C747E7 /* FastlaneBoxTests */,
+				1EBC95C51D7F209000E98C8C /* FastlaneBoxUITests */,
 				44585E7C1D7ED30E00C747E7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,6 +98,7 @@
 			children = (
 				44585E7B1D7ED30E00C747E7 /* FastlaneBox.app */,
 				44585E8F1D7ED30E00C747E7 /* FastlaneBoxTests.xctest */,
+				1EBC95C41D7F209000E98C8C /* FastlaneBoxUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,6 +128,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1EBC95C31D7F209000E98C8C /* FastlaneBoxUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1EBC95CD1D7F209000E98C8C /* Build configuration list for PBXNativeTarget "FastlaneBoxUITests" */;
+			buildPhases = (
+				1EBC95C01D7F209000E98C8C /* Sources */,
+				1EBC95C11D7F209000E98C8C /* Frameworks */,
+				1EBC95C21D7F209000E98C8C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1EBC95CA1D7F209000E98C8C /* PBXTargetDependency */,
+			);
+			name = FastlaneBoxUITests;
+			productName = FastlaneBoxUITests;
+			productReference = 1EBC95C41D7F209000E98C8C /* FastlaneBoxUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		44585E7A1D7ED30E00C747E7 /* FastlaneBox */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 44585E981D7ED30E00C747E7 /* Build configuration list for PBXNativeTarget "FastlaneBox" */;
@@ -144,6 +191,11 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = COMICSMART;
 				TargetAttributes = {
+					1EBC95C31D7F209000E98C8C = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = KX9834768X;
+						TestTargetID = 44585E7A1D7ED30E00C747E7;
+					};
 					44585E7A1D7ED30E00C747E7 = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
@@ -168,11 +220,19 @@
 			targets = (
 				44585E7A1D7ED30E00C747E7 /* FastlaneBox */,
 				44585E8E1D7ED30E00C747E7 /* FastlaneBoxTests */,
+				1EBC95C31D7F209000E98C8C /* FastlaneBoxUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1EBC95C21D7F209000E98C8C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		44585E791D7ED30E00C747E7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -193,6 +253,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1EBC95C01D7F209000E98C8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EBC95C71D7F209000E98C8C /* FastlaneBoxUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		44585E771D7ED30E00C747E7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -213,6 +281,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1EBC95CA1D7F209000E98C8C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 44585E7A1D7ED30E00C747E7 /* FastlaneBox */;
+			targetProxy = 1EBC95C91D7F209000E98C8C /* PBXContainerItemProxy */;
+		};
 		44585E911D7ED30E00C747E7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 44585E7A1D7ED30E00C747E7 /* FastlaneBox */;
@@ -242,6 +315,28 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1EBC95CB1D7F209000E98C8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = FastlaneBoxUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.to4iki.FastlaneBoxUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = FastlaneBox;
+			};
+			name = Debug;
+		};
+		1EBC95CC1D7F209000E98C8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = FastlaneBoxUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.to4iki.FastlaneBoxUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = FastlaneBox;
+			};
+			name = Release;
+		};
 		44585E961D7ED30E00C747E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -376,6 +471,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1EBC95CD1D7F209000E98C8C /* Build configuration list for PBXNativeTarget "FastlaneBoxUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1EBC95CB1D7F209000E98C8C /* Debug */,
+				1EBC95CC1D7F209000E98C8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		44585E761D7ED30E00C747E7 /* Build configuration list for PBXProject "FastlaneBox" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

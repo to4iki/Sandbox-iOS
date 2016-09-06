@@ -13,7 +13,9 @@ GEM
       fastlane_core (>= 0.50.3, < 1.0.0)
       spaceship (>= 0.32.0, < 1.0.0)
     claide (1.0.0)
+    clamp (0.6.5)
     colored (1.2)
+    colorize (0.8.1)
     commander (4.4.0)
       highline (~> 1.7.2)
     credentials_manager (0.16.0)
@@ -70,6 +72,8 @@ GEM
       xcode-install (~> 2.0.0)
       xcodeproj (>= 0.20, < 2.0.0)
       xcpretty (>= 0.2.1)
+    fastlane-plugin-synx (0.1.1)
+      synx
     fastlane_core (0.50.3)
       babosa
       colored
@@ -210,6 +214,10 @@ GEM
       credentials_manager (>= 0.15.0)
       fastlane_core (>= 0.43.4)
       google-api-client (~> 0.9.1)
+    synx (0.2.1)
+      clamp (~> 0.6)
+      colorize (~> 0.7)
+      xcodeproj (~> 1.0)
     terminal-notifier (1.6.3)
     terminal-table (1.4.5)
     thread_safe (0.3.5)
@@ -237,6 +245,7 @@ PLATFORMS
 
 DEPENDENCIES
   fastlane
+  fastlane-plugin-synx
 
 BUNDLED WITH
    1.12.5

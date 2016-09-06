@@ -18,8 +18,13 @@ default_platform :ios
 platform :ios do
   before_all do
     # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
-    
-    
+
+
+  end
+
+  desc "Runs synx to folderize the Xcode project"
+  lane :sync do
+    synx
   end
 
   desc "Runs all the tests"

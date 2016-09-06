@@ -78,11 +78,11 @@
 			isa = PBXGroup;
 			children = (
 				44585E7E1D7ED30E00C747E7 /* AppDelegate.swift */,
-				44585E801D7ED30E00C747E7 /* ViewController.swift */,
-				44585E821D7ED30E00C747E7 /* Main.storyboard */,
 				44585E851D7ED30E00C747E7 /* Assets.xcassets */,
-				44585E871D7ED30E00C747E7 /* LaunchScreen.storyboard */,
 				44585E8A1D7ED30E00C747E7 /* Info.plist */,
+				44585E871D7ED30E00C747E7 /* LaunchScreen.storyboard */,
+				44585E821D7ED30E00C747E7 /* Main.storyboard */,
+				44585E801D7ED30E00C747E7 /* ViewController.swift */,
 			);
 			path = FastlaneBox;
 			sourceTree = "<group>";
@@ -227,6 +227,7 @@
 				44585E831D7ED30E00C747E7 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		44585E871D7ED30E00C747E7 /* LaunchScreen.storyboard */ = {
@@ -235,6 +236,7 @@
 				44585E881D7ED30E00C747E7 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -390,6 +392,7 @@
 				44585E9A1D7ED30E00C747E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		44585E9B1D7ED30E00C747E7 /* Build configuration list for PBXNativeTarget "FastlaneBoxTests" */ = {
 			isa = XCConfigurationList;
@@ -398,6 +401,7 @@
 				44585E9D1D7ED30E00C747E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

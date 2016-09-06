@@ -18,8 +18,14 @@ default_platform :ios
 platform :ios do
   before_all do
     # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
+    # cocoapods
+    # cathage
+  end
 
-
+  desc 'Analyze codes'
+  desc 'This may comment to pull request'
+  lane :lint do
+    swiftlint
   end
 
   desc "Runs synx to folderize the Xcode project"

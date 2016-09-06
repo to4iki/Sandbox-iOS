@@ -6,9 +6,16 @@ sudo gem install fastlane
 ```
 # Available Actions
 ## iOS
-### ios synx
+### ios lint
 ```
-fastlane ios synx
+fastlane ios lint
+```
+Analyze codes
+
+This may comment to pull request
+### ios sync
+```
+fastlane ios sync
 ```
 Runs synx to folderize the Xcode project
 ### ios test

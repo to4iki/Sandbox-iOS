@@ -48,3 +48,19 @@ Carthage/
 /.bundle/
 /vendor/bundle
 /lib/bundler/man/
+
+### fastlane ###
+# fastlane - A streamlined workflow tool for Cocoa deployment
+
+# fastlane specific
+fastlane/report.xml
+
+# deliver temporary files
+fastlane/Preview.html
+
+# snapshot generated screenshots
+fastlane/screenshots/**/*.png
+fastlane/screenshots/screenshots.html
+
+# scan temporary files
+fastlane/test_output

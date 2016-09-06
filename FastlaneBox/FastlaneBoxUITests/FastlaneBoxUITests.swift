@@ -6,13 +6,19 @@ final class FastlaneBoxUITests: XCTestCase {
         super.setUp()
         
         continueAfterFailure = false
-        XCUIApplication().launch()
+
+        let app = XCUIApplication()
+        setupSnapshot(app)
+        app.launch()
     }
-    
+
     override func tearDown() {
         super.tearDown()
     }
     
-    func testExample() {
+    func testTitleLabel() {
+        let app = XCUIApplication()
+        XCTAssertTrue(app.staticTexts["titleLabel"].exists)
+        snapshot("launch")
     }
 }

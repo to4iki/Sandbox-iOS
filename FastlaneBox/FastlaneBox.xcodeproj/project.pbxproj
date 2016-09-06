@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1EBC95C71D7F209000E98C8C /* FastlaneBoxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBC95C61D7F209000E98C8C /* FastlaneBoxUITests.swift */; };
+		1EBC95CF1D7F221800E98C8C /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBC95CE1D7F221800E98C8C /* SnapshotHelper.swift */; };
 		44585E7F1D7ED30E00C747E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44585E7E1D7ED30E00C747E7 /* AppDelegate.swift */; };
 		44585E811D7ED30E00C747E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44585E801D7ED30E00C747E7 /* ViewController.swift */; };
 		44585E841D7ED30E00C747E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44585E821D7ED30E00C747E7 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 		1EBC95C41D7F209000E98C8C /* FastlaneBoxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastlaneBoxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EBC95C61D7F209000E98C8C /* FastlaneBoxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastlaneBoxUITests.swift; sourceTree = "<group>"; };
 		1EBC95C81D7F209000E98C8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1EBC95CE1D7F221800E98C8C /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		44585E7B1D7ED30E00C747E7 /* FastlaneBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastlaneBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44585E7E1D7ED30E00C747E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44585E801D7ED30E00C747E7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			children = (
 				1EBC95C61D7F209000E98C8C /* FastlaneBoxUITests.swift */,
 				1EBC95C81D7F209000E98C8C /* Info.plist */,
+				1EBC95CE1D7F221800E98C8C /* SnapshotHelper.swift */,
 			);
 			path = FastlaneBoxUITests;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EBC95C71D7F209000E98C8C /* FastlaneBoxUITests.swift in Sources */,
+				1EBC95CF1D7F221800E98C8C /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

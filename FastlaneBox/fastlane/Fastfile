@@ -22,6 +22,11 @@ platform :ios do
     # cathage
   end
 
+  desc 'Custom action'
+  lane :my_action do
+    sample
+  end
+
   desc 'Analyze codes'
   desc 'This may comment to pull request'
   lane :lint do

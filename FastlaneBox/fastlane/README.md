@@ -6,6 +6,11 @@ sudo gem install fastlane
 ```
 # Available Actions
 ## iOS
+### ios my_action
+```
+fastlane ios my_action
+```
+Custom action
 ### ios lint
 ```
 fastlane ios lint

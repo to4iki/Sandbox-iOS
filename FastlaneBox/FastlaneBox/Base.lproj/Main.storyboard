@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="T5n-oQ-Y5B">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="prS-X6-Wre">
+            <objects>
+                <navigationController id="T5n-oQ-Y5B" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TA4-gU-a0M">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="x4W-wb-Nzr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="38G-t9-zoa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-326" y="325"/>
+        </scene>
+        <!--Main-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FastlaneBox" customModuleProvider="target" sceneMemberID="viewController">
@@ -21,22 +37,63 @@
                                 <rect key="frame" x="254" y="289" width="92.5" height="21"/>
                                 <accessibility key="accessibilityConfiguration" identifier="titleLabel"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uTQ-rG-6VD">
+                                <rect key="frame" x="284" y="330.5" width="32" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="nextPageButton"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <segue destination="VHf-eT-Mzu" kind="show" id="1Gk-C8-B41"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.87751041002558494" blue="0.92357455159178303" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="GeS-yY-hjf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GVg-va-LV8"/>
+                            <constraint firstItem="uTQ-rG-6VD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="P0B-yq-Ac3"/>
                             <constraint firstItem="GeS-yY-hjf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="b6N-2j-OOI"/>
+                            <constraint firstItem="uTQ-rG-6VD" firstAttribute="top" secondItem="GeS-yY-hjf" secondAttribute="bottom" constant="20" id="fsc-Lw-zbe"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Main" id="f5i-LF-ngw"/>
                     <connections>
+                        <outlet property="nextPageButton" destination="uTQ-rG-6VD" id="fbc-KH-cLR"/>
                         <outlet property="titleLabel" destination="GeS-yY-hjf" id="6Wm-1q-K7R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Table-->
+        <scene sceneID="YqE-rV-Klr">
+            <objects>
+                <tableViewController id="VHf-eT-Mzu" customClass="TableViewController" customModule="FastlaneBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="POM-nj-Tmo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableViewCell" id="OGn-h7-3wi">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OGn-h7-3wi" id="ljn-sF-iDH">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="VHf-eT-Mzu" id="wMS-gB-YXP"/>
+                            <outlet property="delegate" destination="VHf-eT-Mzu" id="NAq-dm-UVs"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Table" id="gBM-pC-UTN"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8M5-CG-99r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1094" y="340"/>
         </scene>
     </scenes>
 </document>

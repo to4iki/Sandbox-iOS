@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E47DDA61D84682E0039CC6B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E47DDA51D84682E0039CC6B /* TableViewController.swift */; };
 		1EBC95C71D7F209000E98C8C /* FastlaneBoxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBC95C61D7F209000E98C8C /* FastlaneBoxUITests.swift */; };
 		1EBC95CF1D7F221800E98C8C /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBC95CE1D7F221800E98C8C /* SnapshotHelper.swift */; };
 		44585E7F1D7ED30E00C747E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44585E7E1D7ED30E00C747E7 /* AppDelegate.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E47DDA51D84682E0039CC6B /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		1EBC95C41D7F209000E98C8C /* FastlaneBoxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastlaneBoxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EBC95C61D7F209000E98C8C /* FastlaneBoxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastlaneBoxUITests.swift; sourceTree = "<group>"; };
 		1EBC95C81D7F209000E98C8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				44585E8A1D7ED30E00C747E7 /* Info.plist */,
 				44585E871D7ED30E00C747E7 /* LaunchScreen.storyboard */,
 				44585E821D7ED30E00C747E7 /* Main.storyboard */,
+				1E47DDA51D84682E0039CC6B /* TableViewController.swift */,
 				44585E801D7ED30E00C747E7 /* ViewController.swift */,
 			);
 			path = FastlaneBox;
@@ -270,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44585E811D7ED30E00C747E7 /* ViewController.swift in Sources */,
+				1E47DDA61D84682E0039CC6B /* TableViewController.swift in Sources */,
 				44585E7F1D7ED30E00C747E7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

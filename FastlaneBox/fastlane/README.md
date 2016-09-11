@@ -27,7 +27,12 @@ Runs synx to folderize the Xcode project
 ```
 fastlane ios test
 ```
-Runs all the tests
+Runs all the unit and ui tests
+### ios screens
+```
+fastlane ios screens
+```
+Creates new screenshots and uploads them to iTunes Connect
 ### ios beta
 ```
 fastlane ios beta

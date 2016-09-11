@@ -1,0 +1,2 @@
+slack:
+    webhookurl: "https://hooks.slack.com/services/{webhookurl}"

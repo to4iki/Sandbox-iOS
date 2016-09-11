@@ -64,3 +64,6 @@ fastlane/screenshots/screenshots.html
 
 # scan temporary files
 fastlane/test_output
+
+# configuration
+fastlane/conf.yml

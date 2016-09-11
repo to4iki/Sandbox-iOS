@@ -45,6 +45,21 @@ platform :ios do
     snapshot
   end
 
+  desc "Upload a new version to the appetize.io"
+  lane :upload do
+    xcclean
+    xcbuild
+    sh ['zip', '-r', '-X', "../app.zip", '../build/*/*.app'].join(" ")
+    appetize(
+      api_token: CONF["appetize"]["api_token"],
+      url: url,
+      private_key: CONF["appetize"]["public_key"]
+    )
+    slack(
+      message: "new build available #{lane_context[SharedValues::APPETIZE_APP_URL]}"
+    )
+  end
+
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :beta do

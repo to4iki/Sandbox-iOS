@@ -1,2 +1,5 @@
 slack:
     webhookurl: "https://hooks.slack.com/services/{webhookurl}"
+appetize:
+    api_token: "{api_token}"
+    public_key: "{public_key}"

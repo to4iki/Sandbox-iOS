@@ -33,6 +33,11 @@ Runs all the unit and ui tests
 fastlane ios screens
 ```
 Creates new screenshots and uploads them to iTunes Connect
+### ios upload
+```
+fastlane ios upload
+```
+Upload a new version to the appetize.io
 ### ios beta
 ```
 fastlane ios beta

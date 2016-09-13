@@ -74,7 +74,7 @@ GEM
       xcpretty (>= 0.2.1)
     fastlane-plugin-synx (0.1.1)
       synx
-    fastlane_core (0.50.3)
+    fastlane_core (0.51.0)
       babosa
       colored
       commander (>= 4.4.0, <= 5.0.0)
@@ -110,8 +110,8 @@ GEM
       multi_json (~> 1.11)
       os (~> 0.9)
       signet (~> 0.7)
-    gym (1.8.0)
-      fastlane_core (>= 0.50.0, < 1.0.0)
+    gym (1.9.0)
+      fastlane_core (>= 0.51.0, < 1.0.0)
       plist
       rubyzip (>= 1.1.7)
       terminal-table
@@ -119,7 +119,7 @@ GEM
     highline (1.7.8)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
-    httpclient (2.8.2.3)
+    httpclient (2.8.2.4)
     hurley (0.2)
     i18n (0.7.0)
     json (1.8.3)
@@ -177,16 +177,16 @@ GEM
     retriable (2.1.0)
     rouge (1.11.1)
     rubyzip (1.1.7)
-    scan (0.11.3)
-      fastlane_core (>= 0.50.0, < 1.0.0)
+    scan (0.12.1)
+      fastlane_core (>= 0.51.0, < 1.0.0)
       slack-notifier (~> 1.3)
       terminal-table
       xcpretty (>= 0.2.1)
       xcpretty-travis-formatter (>= 0.0.3)
-    screengrab (0.5.1)
+    screengrab (0.5.2)
       fastlane_core (>= 0.50.3, < 1.0.0)
     security (0.1.3)
-    sigh (1.10.1)
+    sigh (1.10.2)
       fastlane_core (>= 0.36.1, < 1.0.0)
       plist (~> 3.1)
       spaceship (>= 0.29.1, < 1.0.0)
@@ -228,10 +228,10 @@ GEM
       unf_ext
     unf_ext (0.0.7.2)
     word_wrap (1.0.0)
-    xcode-install (2.0.2)
+    xcode-install (2.0.4)
       claide (>= 0.9.1, < 1.1.0)
       spaceship (>= 0.25.1, < 1.0.0)
-    xcodeproj (1.3.0)
+    xcodeproj (1.3.1)
       activesupport (>= 3)
       claide (>= 1.0.0, < 2.0)
       colored (~> 1.2)
@@ -248,4 +248,4 @@ DEPENDENCIES
   fastlane-plugin-synx
 
 BUNDLED WITH
-   1.12.5
+   1.13.0

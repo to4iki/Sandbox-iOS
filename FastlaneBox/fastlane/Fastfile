@@ -31,10 +31,22 @@ platform :ios do
 
   desc "Runs all the unit and ui tests"
   lane :test do
-    xcclean
     # cocoapods
     # cathage
-    scan
+    scan(
+      scheme: "FastlaneBox",
+      clean: true,
+      code_coverage: true,
+      skip_slack: true,
+      destination: "name=iPhone 6s,OS=9.3",
+    )
+  end
+
+  desc "Calcucate test code covearge score. Need to run test before this"
+  lane :report_test_coverage do
+    xcov(
+      scheme: "FastlaneBox"
+    )
   end
 
   desc "Creates new screenshots and uploads them to iTunes Connect"

@@ -65,5 +65,8 @@ fastlane/screenshots/screenshots.html
 # scan temporary files
 fastlane/test_output
 
+# coverage temporary files
+fastlane/xcov_report
+
 # configuration
 fastlane/conf.yml

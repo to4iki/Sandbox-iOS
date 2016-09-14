@@ -28,6 +28,11 @@ Runs synx to folderize the Xcode project
 fastlane ios test
 ```
 Runs all the unit and ui tests
+### ios report_test_coverage
+```
+fastlane ios report_test_coverage
+```
+Calcucate test code covearge score. Need to run test before this
 ### ios screens
 ```
 fastlane ios screens

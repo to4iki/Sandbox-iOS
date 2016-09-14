@@ -6,11 +6,11 @@ fastlane_version "1.102.0"
 
 default_platform :ios
 
-CONF = YAML.load_file('conf.yml')
+# CONF = YAML.load_file('conf.yml')
 
 platform :ios do
   before_all do
-    ENV["SLACK_URL"] = CONF["slack"]["webhookurl"]
+    # ENV["SLACK_URL"] = CONF["slack"]["webhookurl"]
   end
 
   desc 'Custom action'
@@ -31,13 +31,10 @@ platform :ios do
 
   desc "Runs all the unit and ui tests"
   lane :test do
+    xcclean
     # cocoapods
     # cathage
-    if is_ci
-      scan(skip_slack: false)
-    else
-      scan
-    end
+    scan
   end
 
   desc "Creates new screenshots and uploads them to iTunes Connect"
@@ -84,13 +81,13 @@ platform :ios do
 
   after_all do |lane|
     # This block is called, only if the executed lane was successful
-    slack(message: "Successfully")
+    # slack(message: "Successfully")
   end
 
   error do |lane, exception|
-    slack(
-      message: exception.message,
-      success: false
-    )
+    # slack(
+    #   message: exception.message,
+    #   success: false
+    # )
   end
 end

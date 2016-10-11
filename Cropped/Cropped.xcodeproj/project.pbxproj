@@ -10,6 +10,28 @@
 	<string>46</string>
 	<key>objects</key>
 	<dict>
+		<key>1E4BA1DD1DAD4A240037CF13</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>UIImage+Cropped.swift</string>
+			<key>path</key>
+			<string>UIImage+Cropped.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1E4BA1DE1DAD4A240037CF13</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1E4BA1DD1DAD4A240037CF13</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>1EE2ABDA1DAD36FF0065AAC6</key>
 		<dict>
 			<key>children</key>
@@ -96,6 +118,7 @@
 			<key>files</key>
 			<array>
 				<string>1EE2ABE91DAD36FF0065AAC6</string>
+				<string>1E4BA1DE1DAD4A240037CF13</string>
 				<string>1EE2ABFC1DAD38E80065AAC6</string>
 				<string>1EE2ABE71DAD36FF0065AAC6</string>
 			</array>
@@ -515,6 +538,8 @@
 			</array>
 			<key>defaultConfigurationIsVisible</key>
 			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
 			<key>isa</key>
 			<string>XCConfigurationList</string>
 		</dict>
@@ -575,8 +600,6 @@
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
-			<key>name</key>
-			<string>presentation</string>
 			<key>path</key>
 			<string>presentation</string>
 			<key>sourceTree</key>
@@ -590,11 +613,10 @@
 				<string>1EE2ABED1DAD36FF0065AAC6</string>
 				<string>1EE2ABEF1DAD36FF0065AAC6</string>
 				<string>1EE2ABEA1DAD36FF0065AAC6</string>
+				<string>1E4BA1DD1DAD4A240037CF13</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
-			<key>name</key>
-			<string>view</string>
 			<key>path</key>
 			<string>view</string>
 			<key>sourceTree</key>
@@ -608,8 +630,6 @@
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
-			<key>name</key>
-			<string>viewController</string>
 			<key>path</key>
 			<string>viewController</string>
 			<key>sourceTree</key>

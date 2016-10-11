@@ -1,0 +1,2 @@
+# Cropped
+Trimming UImageView app.
